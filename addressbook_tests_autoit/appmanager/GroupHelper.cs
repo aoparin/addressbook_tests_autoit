@@ -66,5 +66,19 @@ namespace addressbook_tests_autoit
             aux.WinActivate(GROUPWINTITLE);
             aux.WinWaitActive(GROUPWINTITLE);
         }
+
+        public void CheckForAtLeastOneGroup()
+        {
+            OpenGroupsDialogue();
+            int groupsCount = GetGroupCount();
+            if (groupsCount <= 1)//1 because have to have at least one group
+            {
+                GroupData newGroup = new GroupData()
+                {
+                    Name = "test"
+                };
+                Add(newGroup);
+            }
+        }
     }
 }

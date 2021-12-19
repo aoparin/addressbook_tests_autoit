@@ -10,6 +10,7 @@ namespace addressbook_tests_autoit.tests
         [Test]
         public void TestGroupRemoval()
         {
+            app.Groups.CheckForAtLeastOneGroup();
             List<GroupData> oldGroups = app.Groups.GetGroupList();
             app.Groups.Remove();
             Assert.AreEqual(oldGroups.Count - 1, app.Groups.GetGroupCount());
